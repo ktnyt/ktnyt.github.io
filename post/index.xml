@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 始まれば終わる</title>
+    <link>https://ktnyt.github.io/post/</link>
+    <description>Recent content in Posts on 始まれば終わる</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ktnyt&#34;&gt;Kotone Itaya&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Fri, 07 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ktnyt.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello, world.</title>
+      <link>https://ktnyt.github.io/post/hello/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ktnyt.github.io/post/hello/</guid>
+      <description>Welcome to ktnyt&amp;rsquo;s blog.
+I will randomly post things related to Go, C++, and more.
+Programming related things will be in English. Other things will occasionally be in Japanese.
+The blog title is a quote by Natsumi TAKAMORI which roughly translates to &amp;ldquo;What&amp;rsquo;s begun, will end&amp;rdquo;. Its original nuance is that &amp;ldquo;bad things will eventually pass&amp;rdquo;, but I personally think it can be applied to many more things in life.</description>
+    </item>
+    
+  </channel>
+</rss>

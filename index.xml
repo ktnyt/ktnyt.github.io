@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>始まれば終わる</title>
+    <link>https://ktnyt.github.io/</link>
+    <description>Recent content on 始まれば終わる</description>
+    <generator>Hugo - gohugo.io</generator>
+    <language>en</language>
+    <contact>kotone.nyan@gmail.com</contact>
+    <copyright>&copy; <a href="https://github.com/ktnyt">Kotone Itaya</a> 2018</copyright>
+    
+        <atom:link href="https://ktnyt.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello, world.</title>
+      <link>https://ktnyt.github.io/post/hello/</link>
+      <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
+      <author>Kotone Itaya</author>
+      <guid>https://ktnyt.github.io/post/hello/</guid>
+      <description></description>
+      
+      <content>&lt;p&gt;Welcome to ktnyt&amp;rsquo;s blog.&lt;/p&gt;
+
+&lt;p&gt;I will randomly post things related to Go, C++, and more.&lt;br /&gt;
+Programming related things will be in English. Other things will occasionally be in Japanese.&lt;/p&gt;
+
+&lt;p&gt;The blog title is a quote by Natsumi TAKAMORI which roughly translates to &amp;ldquo;What&amp;rsquo;s begun, will end&amp;rdquo;. Its original nuance is that &amp;ldquo;bad things will eventually pass&amp;rdquo;, but I personally think it can be applied to many more things in life.&lt;/p&gt;
+
+&lt;p&gt;私のブログへようこそ。&lt;/p&gt;
+
+&lt;p&gt;Go や C++ またはその他もろもろのことについて適当に投稿します。&lt;br /&gt;
+プログラミング関連のことは英語で、他のことは気分で日本語でも書きます。&lt;/p&gt;
+
+&lt;p&gt;ブログのタイトルは高森奈津美さんからの引用です。「始まったことはいずれ終わりが来る」という意味で、嫌なことを乗り切る時に心の中で唱えるそうです。個人的にはもっといろいろな場面に使えそうだなと思って気に入ってます。&lt;/p&gt;
+</content>
+      
+    </item>
+    
+  </channel>
+</rss>
