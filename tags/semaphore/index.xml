@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Semaphore on 始まれば終わる</title>
+    <link>https://ktnyt.github.io/tags/semaphore/</link>
+    <description>Recent content in Semaphore on 始まれば終わる</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ktnyt&#34;&gt;Kotone Itaya&lt;/a&gt; 2018</copyright>
+    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ktnyt.github.io/tags/semaphore/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Multiprocess Semaphores</title>
+      <link>https://ktnyt.github.io/post/posix/semaphore/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ktnyt.github.io/post/posix/semaphore/</guid>
+      <description>Semaphores are useful for simple synchronization between processes.
+Here is a simple example for synchronizing two processes.
+#include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;semaphore.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;iostream&amp;gt; int main() { pid_t pid = fork(); // 1. Create semaphore sem_t* sem = sem_open(&amp;quot;/mysem&amp;quot;, O_CREAT, 0600, 0); if(pid == 0) { std::cout &amp;lt;&amp;lt; &amp;quot;Children first&amp;quot; &amp;lt;&amp;lt; std::endl; // 3. Increment semaphore to unblock parent sem_post(sem); // 4. Close the semaphore sem_close(sem); } else { // 2.</description>
+    </item>
+    
+  </channel>
+</rss>

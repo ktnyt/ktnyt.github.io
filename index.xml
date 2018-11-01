@@ -13,6 +13,80 @@
     
     
     <item>
+      <title>Multiprocess Semaphores</title>
+      <link>https://ktnyt.github.io/post/posix/semaphore/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      <author>Kotone Itaya</author>
+      <guid>https://ktnyt.github.io/post/posix/semaphore/</guid>
+      <description>Basic usage of semaphores across multiple processes</description>
+      
+      <content>
+
+&lt;p&gt;Semaphores are useful for simple synchronization between processes.&lt;br /&gt;
+Here is a simple example for synchronizing two processes.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include &amp;lt;fcntl.h&amp;gt;
+#include &amp;lt;semaphore.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+
+#include &amp;lt;iostream&amp;gt;
+
+int main() {
+	pid_t pid = fork();
+
+	// 1. Create semaphore
+	sem_t* sem = sem_open(&amp;quot;/mysem&amp;quot;, O_CREAT, 0600, 0);
+
+	if(pid == 0) {
+		std::cout &amp;lt;&amp;lt; &amp;quot;Children first&amp;quot; &amp;lt;&amp;lt; std::endl;
+		// 3. Increment semaphore to unblock parent
+		sem_post(sem);
+
+		// 4. Close the semaphore
+		sem_close(sem);
+	} else {
+		// 2. Block until child increments
+		sem_wait(sem);
+		std::cout &amp;lt;&amp;lt; &amp;quot;Parents second&amp;quot; &amp;lt;&amp;lt; std::endl;
+
+		// 4. Close the semaphore
+		sem_close(sem);
+
+		// 5. Unlink the semaphore
+		sem_unlink(&amp;quot;/mysem&amp;quot;);
+	}
+
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;1-create-semaphore&#34;&gt;1. Create semaphore&lt;/h3&gt;
+
+&lt;p&gt;Creating a semaphore is straightforward using the &lt;code&gt;sem_open&lt;/code&gt; function. The first argument is the name of the semaphore. Other processes will be able to refer to this semaphore with this name. The second argument is the open flag, which specifies how the semaphore should be opened. The most commonly used value is &lt;code&gt;O_CREAT&lt;/code&gt; as it will create a semaphore if it does not exist, and open it otherwise. By specifying the &lt;code&gt;O_CREAT | O_EXCL&lt;/code&gt; flag &lt;code&gt;sem_open&lt;/code&gt; will return an error if the semaphore already exists. The third and fourth arguments are mode and value respectively, and will be ignored if the semaphore already exists. The mode sets the disk permissions for the semaphore. I would personally prefer &lt;code&gt;0600&lt;/code&gt; just to be safe but other values like &lt;code&gt;0666&lt;/code&gt; should be just fine. The value argument determines the initial semaphore value, which typically should be 0 unless there are plans to call &lt;code&gt;sem_wait&lt;/code&gt; immediately. The returned value is a semaphore descriptor or an errno in case of an error.&lt;br /&gt;
+Here the semaphore is created right after &lt;code&gt;fork&lt;/code&gt; to open the same semaphore on both the parent and child processes. This can be done separately and indeed would probably be much more common to do so, but for demonstration purposes this way of opening the same semaphore on both processes made the code a little bit clearer.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-block-until-child-increments&#34;&gt;2. Block until child increments&lt;/h3&gt;
+
+&lt;p&gt;Looking into the parent code, &lt;code&gt;sem_wait&lt;/code&gt; is called on the previously created semaphore first, assuming that the &lt;code&gt;cout&lt;/code&gt; will cause some overhead in the child process. This will attempt to decrement the semaphore value, but as the value is initialized to 0, it cannot. Therefore the process will block until the semaphore value is incremented. When the semaphore is incremented elsewhere, the value will become greater than 0, allowing the process to decrement the value and carry on.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-increment-semaphore-to-unblock-parent&#34;&gt;3. Increment semaphore to unblock parent&lt;/h3&gt;
+
+&lt;p&gt;After the child process writes out a string, it will call &lt;code&gt;sem_post&lt;/code&gt; to increment the semaphore value. This will set the semaphore value to 1, allowing the parent process to decrement the value and proceed.&lt;/p&gt;
+
+&lt;h3 id=&#34;4-close-the-semaphore&#34;&gt;4. Close the semaphore&lt;/h3&gt;
+
+&lt;p&gt;Once the operations on the semaphore are finished, both processes should close the semaphore to clean up by calling &lt;code&gt;sem_close&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;5-unlink-the-semaphore&#34;&gt;5. Unlink the semaphore&lt;/h3&gt;
+
+&lt;p&gt;Closing the semaphore is not enough to completely clean up the named semaphore. To remove the semaphore sitting on disk, a call to &lt;code&gt;sem_unlink&lt;/code&gt; with the semaphore name as the argument is required.&lt;/p&gt;
+
+&lt;p&gt;In order to use semaphores correctly, error handling is necessary. This is use-case dependent so look through the semaphore manuals.&lt;/p&gt;
+</content>
+      
+    </item>
+    
+    <item>
       <title>Diary #2 (2018/09/29)</title>
       <link>https://ktnyt.github.io/post/2018-09-29/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
