@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ktnyt&#34;&gt;Kotone Itaya&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Fri, 28 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ktnyt.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Diary</title>
       <link>https://ktnyt.github.io/tags/diary/</link>
-      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ktnyt.github.io/tags/diary/</guid>
       <description></description>
@@ -27,6 +27,15 @@
       <pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://ktnyt.github.io/tags/misc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Osaka</title>
+      <link>https://ktnyt.github.io/tags/osaka/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ktnyt.github.io/tags/osaka/</guid>
       <description></description>
     </item>
     
